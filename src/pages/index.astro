@@ -1,9 +1,36 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Badge from "../components/Badge.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Edwin Leon.">
 	<main>
-		
+		<section class="w-full lg:w-[740px] mx-auto py-44">
+			<img
+				class="rounded-full w-20 h-20 mb-4"
+				src="https://media.licdn.com/dms/image/D4E03AQFMAU6NmmeLWA/profile-displayphoto-shrink_800_800/0/1698172937838?e=1716422400&v=beta&t=2hF0ucDpTTwyAJAG2NIy8OE2YProglkx6MbBs_d30BI"
+				alt="Edwin Leon Photo"
+			/>
+			<h1
+				class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-10"
+			>
+				Hola, Soy Edwin Leon
+				<div class="flex justify-center items-center">
+					<a
+						href="https://www.linkedin.com/in/edwinleonb/"
+						target="_blank"
+						rel="noopener"
+						class="flex justify-center items-center"
+					>
+						<Badge>Open To Work</Badge>
+					</a>
+				</div>
+			</h1>
+			<h2 class="text-xl opacity-80">
+				Dos años de experiencia como desarrolador de aplicaciones sap y
+				React de alto valor
+			</h2>
+			<ul></ul>
+		</section>
 	</main>
 </Layout>
