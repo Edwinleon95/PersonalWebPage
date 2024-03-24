@@ -1,6 +1,13 @@
 ---
+//components
 import Badge from "../components/Badge.astro";
 import Layout from "../layouts/Layout.astro";
+import SocialPill from "../components/SocialPill.astro";
+
+// icons
+import LinkedInIcon from "../components/icons/LinkedInIcon.astro";
+import GithubIcon from "../components/icons/GithubIcon.astro";
+import SendEmailIcon from "../components/icons/SendEmailIcon.astro";
 ---
 
 <Layout title="Edwin Leon.">
@@ -26,11 +33,24 @@ import Layout from "../layouts/Layout.astro";
 					</a>
 				</div>
 			</h1>
-			<h2 class="text-xl opacity-80">
-				Dos años de experiencia como desarrolador de aplicaciones sap y
-				React de alto valor
+			<h2 class="text-2xl opacity-80 text-wrap">
+				<span>
+					Dos años de experiencia como desarrolador de aplicaciones
+					sap y React de alto valor. Soy de colombia y espero tener la
+					oportunidad de conocerte.
+				</span>
 			</h2>
-			<ul></ul>
+			<nav class="flex gap-x-2 mt-8">
+				<SocialPill href="https://www.linkedin.com/in/edwinleonb/">
+					<LinkedInIcon class="size-6" />LinkeIn
+				</SocialPill>
+				<SocialPill href="https://github.com/Edwinleon95">
+					<GithubIcon class="size-6" /> Github
+				</SocialPill>
+				<SocialPill href="https://github.com/Edwinleon95">
+					<SendEmailIcon class="size-6" /> Contactame
+				</SocialPill>
+			</nav>
 		</section>
 	</main>
 </Layout>
