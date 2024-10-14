@@ -1,56 +1,50 @@
 ---
 //components
-import Badge from "../components/Badge.astro";
 import Layout from "../layouts/Layout.astro";
-import SocialPill from "../components/SocialPill.astro";
 
-// icons
-import LinkedInIcon from "../components/icons/LinkedInIcon.astro";
-import GithubIcon from "../components/icons/GithubIcon.astro";
-import SendEmailIcon from "../components/icons/SendEmailIcon.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import Hero from "../components/Hero.astro";
+import TitleSection from "../components/TitleSection.astro";
+import Briefcase from "../components/icons/Briefcase.astro";
+import Experiencie from "../components/Experiencie.astro";
+import CodeIcon from "../components/icons/Code.astro";
+import Projects from "../components/Projects.astro";
+import ProfileCheck from "../components/icons/ProfileCheck.astro";
+import AboutMe from "../components/AboutMe.astro";
 ---
 
-<Layout title="Edwin Leon.">
-	<main>
-		<section class="w-full lg:w-[740px] mx-auto py-44">
-			<img
-				class="rounded-full w-20 h-20 mb-4"
-				src="https://media.licdn.com/dms/image/D4E03AQFMAU6NmmeLWA/profile-displayphoto-shrink_800_800/0/1698172937838?e=1716422400&v=beta&t=2hF0ucDpTTwyAJAG2NIy8OE2YProglkx6MbBs_d30BI"
-				alt="Edwin Leon Photo"
-			/>
-			<h1
-				class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-10"
-			>
-				Hola, Soy Edwin Leon
-				<div class="flex justify-center items-center">
-					<a
-						href="https://www.linkedin.com/in/edwinleonb/"
-						target="_blank"
-						rel="noopener"
-						class="flex justify-center items-center"
-					>
-						<Badge>Open To Work</Badge>
-					</a>
-				</div>
-			</h1>
-			<h2 class="text-2xl opacity-80 text-wrap">
-				<span>
-					Dos años de experiencia como desarrolador de aplicaciones
-					sap y React de alto valor. Soy de colombia y espero tener la
-					oportunidad de conocerte.
-				</span>
-			</h2>
-			<nav class="flex gap-x-2 mt-8">
-				<SocialPill href="https://www.linkedin.com/in/edwinleonb/">
-					<LinkedInIcon class="size-6" />LinkeIn
-				</SocialPill>
-				<SocialPill href="https://github.com/Edwinleon95">
-					<GithubIcon class="size-6" /> Github
-				</SocialPill>
-				<SocialPill href="https://github.com/Edwinleon95">
-					<SendEmailIcon class="size-6" /> Contactame
-				</SocialPill>
-			</nav>
-		</section>
+<Layout
+	title="My Portfolio"
+	description="Edwin León's professional portfolio"
+>
+	<main class="px-4">
+		<SectionContainer class="py-16 md:py-36">
+			<Hero />
+		</SectionContainer>
 	</main>
+	<div class="space-y-24">
+		<SectionContainer id="experiencie">
+			<TitleSection>
+				<Briefcase class="size-8" />
+				Work Experience
+			</TitleSection>
+			<Experiencie />
+		</SectionContainer>
+
+		<!-- <SectionContainer id="projects">
+			<TitleSection>
+				<CodeIcon class="size-7" />
+				Projects
+			</TitleSection>
+			<Projects />
+		</SectionContainer> -->
+
+		<SectionContainer id="about-me">
+			<TitleSection>
+				<ProfileCheck class="size-8" />
+				About Me
+			</TitleSection>
+			<AboutMe />
+		</SectionContainer>
+	</div>
 </Layout>

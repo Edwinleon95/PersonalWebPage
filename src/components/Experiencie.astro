@@ -1,0 +1,36 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+const EXPERIENCE = [
+    {
+        date: "April 2024 - September 2024",
+        title: "Frontend Developer",
+        company: "Perceptio - Inchcape",
+        description:
+            "Integrated ERP services into the frontend application, enhancing data accessibility and usability for end-users. Implemented seamless integrations with various servers using RESTful APIs and web services, ensuring robust and efficient data flow. Additionally, designed and developed intuitive UI experiences that significantly improved user satisfaction and engagement.",
+    },
+    {
+        date: "July 2022 - April 2024",
+        title: "Full Stack Developer",
+        company: "Mundo Cloud",
+        description:
+            "Developed new web applications, optimised legacy code to improve website performance and data management, and led database migration projects. Actively contributed to team growth by mentoring new team members and ensuring a smooth onboarding process. Reviewed and approved merge requests to maintain balanced and high-quality code standards.",
+    },
+    {
+        date: "August 2021 - July 2022",
+        title: "Self-Taught and University Experience",
+        company: "Independent Learning",
+        description:
+            "During this period, I focused on improving my software development skills through self-study and university courses before entering the workforce.",
+    },
+];
+---
+
+<ol class="relative mt-16">
+    {
+        EXPERIENCE.map((experience) => (
+            <li class="">
+                <ExperienceItem {...experience} />
+            </li>
+        ))
+    }
+</ol>
