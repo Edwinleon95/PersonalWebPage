@@ -3,6 +3,7 @@ import Badge from "../components/Badge.astro";
 import LinkedInIcon from "../components/icons/LinkedInIcon.astro";
 import EmailIcon from "../components/icons/EmailIcon.astro";
 import SocialPill from "../components/SocialPill.astro";
+import GithubIcon from "./icons/GithubIcon.astro";
 ---
 
 <div class="max-w-xl">
@@ -36,13 +37,17 @@ import SocialPill from "../components/SocialPill.astro";
     </p>
 
     <nav class="flex flex-wrap gap-4 mt-8">
-        <SocialPill href="mailto:edwinm.leonb@gmail.com">
-            <EmailIcon class="size-4" />
-            Contact Me
-        </SocialPill>
         <SocialPill href="https://www.linkedin.com/in/edwinleonb/">
             <LinkedInIcon class="size-4" />
             LinkedIn
+        </SocialPill>
+        <SocialPill href="https://github.com/Edwinleon95">
+            <GithubIcon class="size-4" />
+            Github
+        </SocialPill>
+        <SocialPill href="mailto:edwinm.leonb@gmail.com">
+            <EmailIcon class="size-4" />
+            Contact Me
         </SocialPill>
     </nav>
 </div>
