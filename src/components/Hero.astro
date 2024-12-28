@@ -6,34 +6,23 @@ import SocialPill from "../components/SocialPill.astro";
 import GithubIcon from "./icons/GithubIcon.astro";
 ---
 
-<div class="max-w-xl">
-    <div class="flex gap-4 mb-4">
-        <img
-            class="rounded-full shadow-lg size-16"
-            src="/pictureProfile.jpeg"
-            alt="Edwin Profile Picture"
-        />
-        <a
-            href="https://www.linkedin.com/in/edwinleonb/"
-            target="_blank"
-            rel="noopener"
-            class="flex items-center transition md:justify-center md:hover:scale-105"
-        >
-            <Badge>Open To Work</Badge>
-        </a>
-    </div>
+<div>
     <h1
-        class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white"
+        class="text-5xl font-extrabold tracking-tight text-black sm:text-6xl dark:text-white"
     >
-        Hi, I'm Edwin Leon
+        Edwin Leon
     </h1>
-    <p
-        class="mt-6 text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300"
+    <h2
+        class="text-3xl font-bold tracking-tight text-black sm:text-4xl dark:text-gray-300"
     >
-        <strong
-            >Full Stack Software Developer with over 2 years of experience,</strong
-        > I specialise in creating modern websites and web apps that deliver excellent
-        user experiences.
+        Full Stack Developer
+    </h2>
+    <p class="mt-6 text-lg sm:text-xl text-black dark:text-gray-400">
+        <strong class="text-yellow-400 font-semibold"
+            >With over three years of experience as a software developer,</strong
+        >
+        I have collaborated with global teams, contributing to impactful projects
+        across diverse industries and delivering solutions tailored to business needs.
     </p>
 
     <nav class="flex flex-wrap gap-4 mt-8">
@@ -50,4 +39,12 @@ import GithubIcon from "./icons/GithubIcon.astro";
             Contact Me
         </SocialPill>
     </nav>
+</div>
+
+<div>
+    <img
+        class="rounded-full filter drop-shadow-[0_0_10px_#4444dd] dark:drop-shadow-[0_0_100px_#ffffff]"
+        src="/mainPicturePortfolio.png"
+        alt="Edwin Profile Picture"
+    />
 </div>
