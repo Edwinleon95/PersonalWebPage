@@ -9,91 +9,75 @@ import IconGithub from './components/icons/technologies/IconGithub.astro';
 import IconTS from './components/icons/technologies/IconTS.astro';
 import IconNode from "./components/icons/technologies/IconNode.astro";
 import IconPython from "./components/icons/technologies/IconPython.astro";
-import IconSapUI5 from "./components/icons/technologies/IconSapUI5.astro";
 import IconSAP from "./components/icons/technologies/IconSAP.astro";
 import IconSQL from "./components/icons/technologies/IconSQL.astro";
 
 
-export const TODAS_TECNOLOGIAS = [
+export const ALL_TECHNOLOGIES = [
     {
-        nombre: "TypeScript",
-        icono: "TypeScript",
+        name: "TypeScript",
+        icon: IconTS,
         color: "#3078c6",
     },
     {
-        nombre: "JavaScript",
-        icono: "JavaScript",
+        name: "JavaScript",
+        icon: IconJS,
         color: "#F0DB4F",
     },
     {
-        nombre: "Python",
-        icono: "Python",
+        name: "Python",
+        icon: IconPython,
         color: "#387EB8",
     },
     {
-        nombre: "SQL",
-        icono: "SQL",
+        name: "SQL",
+        icon: IconSQL,
         color: "#1B9BDB",
     },
     {
-        nombre: "HTML",
-        icono: "HTML",
+        name: "HTML",
+        icon: IconHTML,
         color: "#EF652A",
     },
     {
-        nombre: "CSS",
-        icono: "CSS",
+        name: "CSS",
+        icon: IconCSS,
         color: "#30A9DC",
     },
     {
-        nombre: "NodeJs",
-        icono: "NodeJs",
+        name: "NodeJs",
+        icon: IconNode,
         color: "#41873F",
     },
     {
-        nombre: "React",
-        icono: "React",
+        name: "React",
+        icon: IconReact,
         color: "#61DAFB",
     },
     {
-        nombre: "Astro",
-        icono: "Astro",
+        name: "Astro",
+        icon: IconAstro,
         color: "#FF5D01",
     },
     {
-        nombre: "Tailwind CSS",
-        icono: "Tailwind",
+        name: "Tailwind CSS",
+        icon: IconTailwind,
         color: "#38B2AC",
     },
     {
-        nombre: "Git",
-        icono: "Git",
+        name: "Git",
+        icon: IconGit,
         color: "#de4b36",
     },
     {
-        nombre: "GitHub",
-        icono: "GitHub",
+        name: "GitHub",
+        icon: IconGithub,
         color: "#fff",
     },
     {
-        nombre: "SAP BTP",
-        icono: "SAPBTP",
+        name: "SAP BTP",
+        icon: IconSAP,
         color: "#00AEEF",
     },
-]
+];
 
-export const TECNOLOGIAS_ICONOS = {
-    HTML: IconHTML,
-    CSS: IconCSS,
-    Tailwind: IconTailwind,
-    JavaScript: IconJS,
-    TypeScript: IconTS,
-    React: IconReact,
-    Astro: IconAstro,
-    Git: IconGit,
-    GitHub: IconGithub,
-    NodeJs: IconNode,
-    Python: IconPython,
-    SAPBTP: IconSAP,
-    SQL: IconSQL
-};

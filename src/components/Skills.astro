@@ -1,22 +1,21 @@
 ---
-import { TODAS_TECNOLOGIAS, TECNOLOGIAS_ICONOS } from "../consts";
-import SkillPopUp from "./SkillPopUp.astro";
+import { ALL_TECHNOLOGIES } from "../consts";
 ---
 
 <article class="pt-12">
-    <ul class=" flex flex-wrap justify-center gap-5 px-0 py-0">
+    <ul class="flex flex-wrap justify-center gap-5 px-0 py-0">
         {
-            TODAS_TECNOLOGIAS.map((tecnologia) => {
-                const Icon = TECNOLOGIAS_ICONOS[tecnologia.icono];
+            ALL_TECHNOLOGIES.map((technologie) => {
+                const Icon = technologie.icon;
 
                 return (
                     <li
-                        id={tecnologia.nombre}
+                        id={technologie.name}
                         class="icon-container text-black"
-                        style={{ "--background-dif": tecnologia.color }}
+                        style={{ "--background-dif": technologie.color }}
                     >
                         <Icon class="icon" width="50" height="50" />
-                        <span class="tooltip"> {tecnologia.nombre} </span>
+                        <span class="tooltip"> {technologie.name} </span>
                     </li>
                 );
             })
