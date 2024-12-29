@@ -1,0 +1,106 @@
+---
+// Props: title, description, and icon
+const { title, description, icon, isOpen, onClose } = Astro.props;
+---
+
+<div
+    id="popup"
+    class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center"
+>
+    <div class="bg-white p-6 rounded-lg shadow-lg w-80">
+        <span
+            id="close-popup"
+            class="cursor-pointer text-xl absolute top-2 right-2">&times;</span
+        >
+        <p id="popup-text" class="text-center text-lg">With over three years</p>
+    </div>
+</div>
+
+<script is:inline>
+    const TODAS_TECNOLOGIAS = [
+        {
+            nombre: "JavaScript",
+            icono: "JavaScript",
+            color: "#F0DB4F",
+        },
+        {
+            nombre: "TypeScript",
+            icono: "TypeScript",
+            color: "#3078c6",
+        },
+        {
+            nombre: "Python",
+            icono: "Python",
+            color: "#387EB8",
+        },
+        {
+            nombre: "HTML",
+            icono: "HTML",
+            color: "#EF652A",
+        },
+        {
+            nombre: "CSS",
+            icono: "CSS",
+            color: "#30A9DC",
+        },
+        {
+            nombre: "NodeJs",
+            icono: "NodeJs",
+            color: "#41873F",
+        },
+        {
+            nombre: "React",
+            icono: "React",
+            color: "#61DAFB",
+        },
+        {
+            nombre: "Astro",
+            icono: "Astro",
+            color: "#FFAA00",
+        },
+        {
+            nombre: "Tailwind CSS",
+            icono: "Tailwind",
+            color: "#38B2AC",
+        },
+        {
+            nombre: "Git",
+            icono: "Git",
+            color: "#de4b36",
+        },
+        {
+            nombre: "GitHub",
+            icono: "GitHub",
+            color: "#fff",
+        },
+    ];
+
+    TODAS_TECNOLOGIAS.forEach((tecnologia) => {
+        document
+            .getElementById(tecnologia.nombre)
+            .addEventListener("click", (e) => {
+                e.stopPropagation();
+                console.log(tecnologia.nombre);
+
+                // Show custom popup
+                const popup = document.getElementById("popup");
+                const popupText = document.getElementById("popup-text");
+                const closePopup = document.getElementById("close-popup");
+
+                popupText.textContent = `You clicked on ${tecnologia.nombre}`;
+                popup.style.display = "flex"; // Show the popup
+
+                // Close the popup when the close button is clicked
+                closePopup.addEventListener("click", () => {
+                    popup.style.display = "none"; // Hide the popup
+                });
+
+                // Close the popup if clicked outside the modal content
+                popup.addEventListener("click", (e) => {
+                    if (e.target === popup) {
+                        popup.style.display = "none";
+                    }
+                });
+            });
+    });
+</script>
