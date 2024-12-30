@@ -1,9 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-	darkmode:'class',
+	darkMode: 'class',
 	theme: {
-		extend: {},
+		extend: {
+			screens: {
+				'max-sm': { 'max': '780px' }, // For screens up to 640px wide
+			},
+		},
 	},
 	plugins: [],
 }

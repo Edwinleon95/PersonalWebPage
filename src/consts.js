@@ -72,7 +72,7 @@ export const ALL_TECHNOLOGIES = [
     {
         name: "GitHub",
         icon: IconGithub,
-        color: "#fff",
+        color: "#808080",
     },
     {
         name: "SAP BTP",

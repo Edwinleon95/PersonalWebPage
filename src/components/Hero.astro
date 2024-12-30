@@ -8,24 +8,24 @@ import GithubIcon from "./icons/GithubIcon.astro";
 
 <div>
     <h1
-        class="text-5xl font-extrabold tracking-tight text-black sm:text-6xl dark:text-white"
+        class="text-5xl font-extrabold tracking-tight text-gray-900 max-sm:text-6xl dark:text-gray-100 max-sm:text-center"
     >
         Edwin Leon
     </h1>
     <h2
-        class="text-3xl font-bold tracking-tight text-black sm:text-4xl dark:text-gray-300"
+        class="text-3xl font-bold tracking-tight  max-sm:text-4xl dark:text-gray-300 text-gray-700 max-sm:text-center"
     >
         Full Stack Developer
     </h2>
-    <p class="mt-6 text-lg sm:text-xl text-black dark:text-gray-400">
-        <strong class="text-yellow-400 font-semibold"
+    <p class="mt-6 text-lg max-sm:text-xl text-gray-600 dark:text-gray-400 font-medium max-sm:text-center">
+        <strong class="text-yellow-400 font-bold"
             >With over three years of experience as a software developer,</strong
         >
         I have collaborated with global teams, contributing to impactful projects
         across diverse industries and delivering solutions tailored to business needs.
     </p>
 
-    <nav class="flex flex-wrap gap-4 mt-8">
+    <nav class="flex flex-wrap gap-4 mt-8 max-sm:justify-center">
         <SocialPill href="https://www.linkedin.com/in/edwinleonb/">
             <LinkedInIcon class="size-4" />
             LinkedIn
@@ -41,9 +41,9 @@ import GithubIcon from "./icons/GithubIcon.astro";
     </nav>
 </div>
 
-<div>
+<div class=" max-sm:content-center">
     <img
-        class="rounded-full filter drop-shadow-[0_0_10px_#4444dd] dark:drop-shadow-[0_0_100px_#ffffff]"
+        class="transition rounded-full filter drop-shadow-[0_0_10px_#4444dd] dark:drop-shadow-[0_0_100px_#ffffff] max-sm:size-72 max-sm:mb-5"
         src="/mainPicturePortfolio.png"
         alt="Edwin Profile Picture"
     />
