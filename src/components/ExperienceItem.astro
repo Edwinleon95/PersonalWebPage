@@ -12,9 +12,9 @@ interface Props {
 const { title, company, description, link, date } = Astro.props;
 ---
 
-<div class="flex flex-col items-center space-y-4">
+<!-- <div class="flex flex-col items-center space-y-4">
     <div
-        class="p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl hover:border hover:border-yellow-400"
+        class="p-6 rounded-lg shadow-lg transition-transform transform hover:border hover:border-yellow-400 dark:bg-[#1b1b1b] bg-gray-100"
     >
         <h3
             class="text-xl font-bold text-yellow-400"
@@ -25,4 +25,46 @@ const { title, company, description, link, date } = Astro.props;
         <time class="text-sm text-gray-500 dark:text-gray-400">{date}</time>
         <p class="mt-2 text-gray-700 dark:text-gray-300">{description}</p>
     </div>
+</div> -->
+<div class="flex flex-col items-center space-y-4">
+    <div
+        class="special-hover p-6 rounded-lg shadow-md dark:bg-[#1b1b1b] bg-gray-100 transition-transform transform hover:border hover:border-yellow-400"
+    >
+        <!-- Title (always visible) -->
+        <h3
+            class="text-xl font-bold text-yellow-400"
+        >
+            {title}
+        </h3>
+        <h4 class="text-lg text-gray-600 dark:text-gray-300 mt-2">
+            {company}
+        </h4>
+        <time class="text-sm text-gray-500 dark:text-gray-400">{date}</time>
+
+        <!-- Description (hidden by default) -->
+        <!-- <div
+            class="description-container overflow-hidden max-h-0 transition-all duration-1000 ease-in-out"
+        > -->
+            <!-- <h4 class="text-lg text-gray-600 dark:text-gray-300 mt-2">
+                {company}
+            </h4>
+            <time class="text-sm text-gray-500 dark:text-gray-400">{date}</time> -->
+            <!-- {
+                description.map((desc) => (
+                    <p class="description-container mt-2 text-gray-700 overflow-hidden max-h-0 dark:text-gray-300 transition-all duration-500 ease-linear">
+                        <span class="w-2 h-2 rounded-full bg-yellow-500 inline-block mr-2"/>
+                        {desc}
+                    </p>
+                ))
+            } -->
+            <p class="description-container mt-2 text-gray-700 overflow-hidden max-h-0 dark:text-gray-300 transition-all duration-500 ease-linear">{description}</p>
+        <!-- </div> -->
+    </div>
 </div>
+
+<style>
+    .special-hover:hover .description-container {
+        overflow: visible;
+        max-height: 12rem;
+    }
+</style>
