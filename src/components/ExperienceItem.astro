@@ -5,35 +5,20 @@ interface Props {
     title: string;
     company: string;
     description: string;
-    link?: string;
     date: string;
+    skills: string[]; // Added the skills property
 }
 
-const { title, company, description, link, date } = Astro.props;
+const { title, company, description, date, skills } = Astro.props;
 ---
 
-<!-- <div class="flex flex-col items-center space-y-4">
-    <div
-        class="p-6 rounded-lg shadow-lg transition-transform transform hover:border hover:border-yellow-400 dark:bg-[#1b1b1b] bg-gray-100"
-    >
-        <h3
-            class="text-xl font-bold text-yellow-400"
-        >
-            {title}
-        </h3>
-        <h4 class="text-lg text-gray-600 dark:text-gray-300">{company}</h4>
-        <time class="text-sm text-gray-500 dark:text-gray-400">{date}</time>
-        <p class="mt-2 text-gray-700 dark:text-gray-300">{description}</p>
-    </div>
-</div> -->
+
 <div class="flex flex-col items-center space-y-4">
     <div
         class="special-hover p-6 rounded-lg shadow-md dark:bg-[#1b1b1b] bg-gray-100 transition-transform transform hover:border hover:border-yellow-400"
     >
         <!-- Title (always visible) -->
-        <h3
-            class="text-xl font-bold text-yellow-400"
-        >
+        <h3 class="text-xl font-bold text-yellow-400">
             {title}
         </h3>
         <h4 class="text-lg text-gray-600 dark:text-gray-300 mt-2">
@@ -41,26 +26,31 @@ const { title, company, description, link, date } = Astro.props;
         </h4>
         <time class="text-sm text-gray-500 dark:text-gray-400">{date}</time>
 
-        <!-- Description (hidden by default) -->
-        <!-- <div
-            class="description-container overflow-hidden max-h-0 transition-all duration-1000 ease-in-out"
-        > -->
-            <!-- <h4 class="text-lg text-gray-600 dark:text-gray-300 mt-2">
-                {company}
-            </h4>
-            <time class="text-sm text-gray-500 dark:text-gray-400">{date}</time> -->
-            <!-- {
-                description.map((desc) => (
-                    <p class="description-container mt-2 text-gray-700 overflow-hidden max-h-0 dark:text-gray-300 transition-all duration-500 ease-linear">
-                        <span class="w-2 h-2 rounded-full bg-yellow-500 inline-block mr-2"/>
-                        {desc}
-                    </p>
-                ))
-            } -->
-            <p class="description-container mt-2 text-gray-700 overflow-hidden max-h-0 dark:text-gray-300 transition-all duration-500 ease-linear">{description}</p>
-        <!-- </div> -->
+        <p
+            class="description-container mt-2 text-gray-700 overflow-hidden max-h-0 dark:text-gray-300 transition-all duration-500 ease-linear"
+        >
+            {description}
+        </p>
+
+        <!-- Skills Section -->
+        <div class="mt-4">
+            <h5 class="text-md font-semibold text-gray-800 dark:text-gray-200">
+                Skills:
+            </h5>
+            <ul class="flex flex-wrap gap-2 mt-2">
+                {skills.map((skill) => (
+                    <li
+                        class="px-3 py-1 text-sm text-gray-800 transition bg-gray-50 border border-gray-300 dark:bg-[#121212] dark:border-gray-600 dark:text-white  text-md hover:bg-gray-900 hover:border-gray-700 hover:text-white dark:hover:bg-gray-100 dark:hover:border-gray-300 dark:hover:text-black group max-w-fit focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black rounded-full"
+                    >
+                        {skill}
+                    </li>
+                ))}
+            </ul>
+        </div>
     </div>
 </div>
+
+
 
 <style>
     .special-hover:hover .description-container {
