@@ -15,7 +15,7 @@ const { title, company, description, date, skills } = Astro.props;
 
 <div class="flex flex-col items-center space-y-4">
     <div
-        class="special-hover p-6 rounded-lg shadow-md dark:bg-[#1b1b1b] bg-gray-100 transition-transform transform hover:border hover:border-yellow-400"
+        class="p-6 rounded-lg shadow-md dark:bg-[#1b1b1b] bg-gray-100 transition-transform transform hover:border hover:border-yellow-400"
     >
         <!-- Title (always visible) -->
         <h3 class="text-xl font-bold text-yellow-400">
@@ -27,7 +27,7 @@ const { title, company, description, date, skills } = Astro.props;
         <time class="text-sm text-gray-500 dark:text-gray-400">{date}</time>
 
         <p
-            class="description-container mt-2 text-gray-700 overflow-hidden max-h-0 dark:text-gray-300 transition-all duration-500 ease-linear"
+            class="description-container mt-2 text-gray-700 dark:text-gray-300 transition-all duration-500 ease-linear"
         >
             {description}
         </p>
