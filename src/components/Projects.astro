@@ -1,59 +1,71 @@
 ---
 import GitHub from "./icons/GitHub.astro";
 import Link from "./icons/Link.astro";
-import { PROJECTS } from "../data/projects"; // Ensure this import is correct
+import { PROJECTS } from "../data/projects";
 import SocialPill from "./SocialPill.astro";
 ---
 
-<div class="flex flex-col gap-y-12">
+<div class="flex flex-col gap-y-16">
     {
         PROJECTS.map(
             ({ image, title, description, link, github, features }) => (
-                <article class="flex flex-col md:flex-row gap-8 group">
-                    <div class="w-full md:w-1/2">
-                        <div class="relative flex flex-col items-center shadow-xl overflow-hidden rounded-xl transition-all duration-500 ease-in-out transform md:group-hover:-translate-y-1 md:group-hover:shadow-2xl border border-gray-800 hover:border-gray-700 hover:bg-gray-800/50">
+                <article class="flex flex-col md:flex-row gap-8 group hover:!opacity-100 !opacity-90 transition-opacity duration-300">
+                    {/* Image Container */}
+                    <div class="w-full md:w-1/2 h-64 md:h-80 relative">
+                        <div class="relative h-full overflow-hidden rounded-2xl shadow-lg border border-gray-700/50 bg-gradient-to-br from-gray-900/50 to-gray-800/30 transition-all duration-500 group-hover:border-gray-600/70 group-hover:bg-gray-800/20">
                             <img
                                 alt={title}
-                                class="object-cover object-top w-full h-56 sm:h-full transition-all duration-500 md:scale-110 md:group-hover:scale-105"
+                                class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-[1.02]"
                                 loading="lazy"
                                 src={image}
                             />
+                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-gray-900/20 to-transparent" />
                         </div>
                     </div>
 
-                    <div class="w-full md:w-1/2 max-w-lg flex flex-col justify-between">
-                        <h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100">
-                            {title}
-                        </h3>
+                    {/* Content Container */}
+                    <div class="w-full md:w-1/2 flex flex-col justify-between py-2">
+                        <div>
+                            <h3 class="text-3xl font-bold text-gray-100 tracking-tight">
+                                {title}
+                            </h3>
 
-                        <p class="mt-2 text-gray-700 dark:text-gray-400 leading-relaxed">
-                            {description}
-                        </p>
+                            <p class="mt-3 text-gray-300 leading-relaxed">
+                                {description}
+                            </p>
 
-                        {features && features.length > 0 && (
-                            <ul class="mt-4 space-y-2 text-gray-700 dark:text-gray-400">
-                                {features.map((feature, index) => (
-                                    <li class="flex items-start gap-2">
-                                        <span class="text-blue-500 dark:text-blue-400">
-                                            •
-                                        </span>{" "}
-                                        {feature}
-                                    </li>
-                                ))}
-                            </ul>
-                        )}
+                            {features && features.length > 0 && (
+                                <ul class="mt-5 space-y-3">
+                                    {features.map((feature) => (
+                                        <li class="flex items-start gap-3 text-gray-400 hover:text-gray-300 transition-colors">
+                                            <span class="text-blue-400 mt-1.5">
+                                                <svg
+                                                    width="6"
+                                                    height="6"
+                                                    viewBox="0 0 24 24"
+                                                    fill="currentColor"
+                                                >
+                                                    <path d="M12 2L2 12L12 22L22 12L12 2Z" />
+                                                </svg>
+                                            </span>
+                                            <span>{feature}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                        </div>
 
-                        <footer class="flex items-center gap-4 mt-4">
+                        <footer class="flex items-center gap-3 mt-6">
                             {github && (
                                 <SocialPill href={github}>
-                                    <GitHub class="w-6 h-6" />
-                                    Code
+                                    <GitHub class="w-5 h-5" />
+                                    <span>View Code</span>
                                 </SocialPill>
                             )}
                             {link && (
                                 <SocialPill href={link}>
                                     <Link class="w-5 h-5" />
-                                    Preview
+                                    <span>Live Demo</span>
                                 </SocialPill>
                             )}
                         </footer>
@@ -63,3 +75,17 @@ import SocialPill from "./SocialPill.astro";
         )
     }
 </div>
+
+<style>
+    /* Smooth image scaling */
+    img {
+        will-change: transform;
+        backface-visibility: hidden;
+    }
+
+    /* Better list item alignment */
+    li > span {
+        display: inline-block;
+        min-width: 1.25rem;
+    }
+</style>
