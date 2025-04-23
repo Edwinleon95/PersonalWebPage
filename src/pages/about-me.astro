@@ -1,0 +1,105 @@
+---
+//components
+import Layout from "../layouts/Layout.astro";
+
+import SectionContainer from "../components/SectionContainer.astro";
+import TitleSection from "../components/TitleSection.astro";
+import ProfileCheck from "../components/icons/ProfileCheck.astro";
+import Badge from "../components/Badge.astro";
+---
+
+<Layout
+    title="Edwin Portfolio"
+    description="Edwin León's professional portfolio"
+>
+    <SectionContainer id="about-me" class="pt-16 md:pt-36">
+        <TitleSection>
+            <ProfileCheck class="size-8" />
+            About Me
+        </TitleSection>
+        <article
+            class="flex flex-col items-center justify-between gap-8 text-gray-700 dark:text-gray-300 md:flex-row md:gap-12 max-sm:px-4"
+        >
+            <!-- Image Section with Personal Details -->
+            <div
+                class="relative flex flex-col items-center order-1 md:order-1 space-y-4"
+            >
+                <!-- Image -->
+                <img
+                    width="200"
+                    height="200"
+                    src="/lightPhoto.jpg"
+                    alt="Me in Sunny day"
+                    class="object-cover rounded-xl bg-gradient-to-br from-yellow-100 to-gray-200 shadow-md ring-2 ring-black/10 dark:ring-white/10 transition-transform transform hover:scale-105 dark:hidden block"
+                />
+                <!-- class="rounded-xl  dark:hidden" -->
+                <img
+                    width="200"
+                    height="200"
+                    src="/darkPhoto.jpg"
+                    alt="Me at night"
+                    class="object-cover rounded-xl bg-gradient-to-br dark:from-yellow-500/10 dark:to-gray-700/30 shadow-md ring-2 ring-black/10 dark:ring-white/10 transition-transform transform hover:scale-105 hidden dark:block"
+                />
+
+                <!-- Personal Details -->
+                <div class="text-center space-y-2">
+                    <p class="text-lg font-semibold text-yellow-400">
+                        Full Stack Developer
+                    </p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                        Brisbane, Australia
+                    </p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                        <a
+                            href="mailto:edwinleon@webdevinnovation.com?subject=Potential%Opportunity&body=I%20would%20like%20to%20connect%20with%20you."
+                            class="hover:underline"
+                            target="_blank"
+                        >
+                            edwinleon@webdevinnovation.com
+                        </a>
+                    </p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                        +61 0452 069 981
+                    </p>
+                </div>
+
+                <!-- Download Resume Button -->
+                <Badge href="https://www.linkedin.com/in/edwinleonb/"
+                    >OPEN TO WORK</Badge
+                >
+            </div>
+
+            <!-- Text Section -->
+            <div class="order-2 md:order-2 max-w-xl space-y-6">
+                <!-- First Paragraph -->
+                <p class="leading-relaxed text-lg">
+                    Hi, I’m <strong class="text-yellow-400">Edwin León</strong>,
+                    a
+                    <strong>Full Stack Developer</strong> with over 3 years of experience
+                    building modern, high-performance web applications. Originally
+                    from Colombia and now based in Australia, I specialise in
+                    <strong
+                        >JavaScript, TypeScript, React, Node.js, SAPUI5, and SQL</strong
+                    >.
+                </p>
+
+                <p class="leading-relaxed text-lg">
+                    My expertise includes <strong
+                        >integrating ERP services</strong
+                    >,
+                    <strong>optimising databases</strong>, and <strong
+                        >developing seamless user experiences</strong
+                    >. I thrive in <strong>collaborative environments</strong>,
+                    where I can mentor, share knowledge, and contribute to
+                    impactful projects.
+                </p>
+
+                <p class="leading-relaxed text-lg">
+                    Passionate about <strong>continuous learning</strong>, I
+                    stay updated with industry trends to deliver innovative
+                    solutions. Let’s connect and build something great together!
+                </p>
+            </div>
+        </article>
+    </SectionContainer>
+</Layout>

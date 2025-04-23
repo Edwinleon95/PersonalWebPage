@@ -1,6 +1,5 @@
 ---
 import "@fontsource-variable/onest";
-
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { ViewTransitions } from "astro:transitions";
@@ -11,6 +10,25 @@ interface Props {
 }
 
 const { description, title } = Astro.props;
+
+// Define your content animation
+const contentAnimation = {
+	old: {
+		name: "content-out",
+		duration: "0.4s",
+		easing: "cubic-bezier(0.4, 0, 0.2, 1)",
+	},
+	new: {
+		name: "content-in",
+		duration: "0.4s",
+		easing: "cubic-bezier(0.4, 0, 0.2, 1)",
+	},
+};
+
+const customTransition = {
+	forwards: contentAnimation,
+	backwards: contentAnimation,
+};
 ---
 
 <!doctype html>
@@ -20,18 +38,11 @@ const { description, title } = Astro.props;
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/coding.svg" />
-		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+
+		<!-- Enable View Transitions with persistent header/footer -->
 		<ViewTransitions />
-	</head>
-	<body class="relative text-black dark:text-white">
-		<div
-			class="absolute top-0 bottom-0 z-[-2] min-h-screen w-full bg-gray-50 dark:bg-[#121212]"
-		>
-		</div>
-		<Header />
-		<slot />
-		<Footer />
+
 		<style is:global>
 			:root {
 				color-scheme: light dark;
@@ -107,74 +118,41 @@ const { description, title } = Astro.props;
 					}
 				}
 			}
-
-			.icon-container {
-				position: relative;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				gap: 8px;
-				padding: 8px;
-				border-radius: 8px;
-				border: 2px solid transparent;
-				transition: all 0.3s ease;
-
-				&:hover {
-					transform: scale(1.1);
-					border: 2px solid var(--background-dif);
-				}
-
-				&:hover svg {
-					filter: drop-shadow(0px 0px 25px var(--background-dif));
-				}
-
-				&:hover .tooltip {
-					opacity: 1;
-					transform: translateY(-45px);
-				}
-
-				.tooltip {
-					position: absolute;
-					text-wrap: nowrap;
-					transform: translateY(-30px);
-					opacity: 0;
-					font-weight: 700;
-					text-align: center;
-					background-color: var(--background-dif);
-					color: var(--background-color);
-					border-radius: 4px;
-					padding: 4px 8px;
-					transition:
-						opacity 0.3s ease,
-						transform 0.3s ease;
-				}
-			}
-
-			@keyframes mostrar {
+			/* Content animations */
+			@keyframes content-in {
 				from {
 					opacity: 0;
-					scale: 50%;
+					transform: translateY(20px);
 				}
-
 				to {
 					opacity: 1;
-					scale: 100%;
+					transform: translateY(0);
 				}
 			}
 
-			@keyframes crecer {
-				0% {
-					scale: 100%;
+			@keyframes content-out {
+				to {
+					opacity: 0;
+					transform: translateY(-20px);
 				}
+			}
 
-				20% {
-					scale: 120%;
-				}
-
-				100% {
-					scale: 100%;
-				}
+			::view-transition-new(root) {
+				animation: content-in 0.4s cubic-bezier(0.4, 0, 0.2, 1) both;
 			}
 		</style>
+	</head>
+
+	<body class="relative text-black dark:text-white">
+		<div
+			class="absolute top-0 bottom-0 z-[-2] min-h-screen w-full bg-gray-50 dark:bg-[#121212]"
+		>
+		</div>
+
+		<!-- Add data attributes for persistence -->
+		<Header />
+		<slot />
+		<Footer />
 	</body>
 </html>
+yy

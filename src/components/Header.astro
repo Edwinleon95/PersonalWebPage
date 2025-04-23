@@ -1,117 +1,128 @@
 ---
-// import ThemeToggle from "./ThemeToggle.astro";
 import ThemeToggle from "../components/ThemeToggle.astro";
 
 const navItems = [
+    // Add home link at the beginning
+    {
+        title: "Home",
+        label: "home",
+        url: "/",
+        target: "",
+        icon: "/coding.svg",
+    },
     {
         title: "Experiencie",
         label: "experiencie",
-        url: "/#experiencie",
-        target: ""
+        url: "/experiencie",
+        target: "",
     },
     {
         title: "Projects",
         label: "projects",
-        url: "/#projects",
+        url: "/projects",
     },
     {
         title: "About Me",
         label: "about me",
-        url: "/#about-me",
-        target: ""
+        url: "/about-me",
+        target: "",
     },
     {
         title: "Contact Me",
         label: "contact me",
         url: "mailto:edwinleon@webdevinnovation.com?subject=Potential%Opportunity&body=I%20would%20like%20to%20connect%20with%20you.",
-        target: "_blank"
+        target: "_blank",
     },
 ];
 ---
 
-<header
-    class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2"
->
+<header class="fixed top-0 z-50 w-full">
     <nav
-        class="flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 justify-center items-center"
+        class="container mx-auto px-4 transition-all duration-300 ease-out-expo"
     >
-        {
-            navItems.map((link) => (
-                <a
-                    class="relative block px-2 py-2 transition hover:text-blue-500 dark:hover:text-blue-500"
-                    aria-label={link.label}
-                    href={link.url}
-                    target={link.target}
-                >
-                    {link.title}
-                </a>
-            ))
-        }
-        <ThemeToggle />
+        <div
+            id="header-nav"
+            class="flex items-center justify-between rounded-full backdrop-blur-lg px-6 py-3 shadow-lg dark:shadow-black/20"
+        >
+            <div class="flex items-center gap-6">
+                {
+                    navItems.map((link) => (
+                        <a
+                            class="group relative px-3 py-2 text-sm font-medium transition-all hover:text-blue-500 dark:hover:text-blue-400"
+                            href={link.url}
+                            target={link.target}
+                            aria-label={link.label}
+                        >
+                            {/* Home icon with special styling */}
+                            {link.icon ? (
+                                <div class="relative flex items-center">
+                                    <img
+                                        src={link.icon}
+                                        alt=""
+                                        class=" size-8 invert dark:invert-0"
+                                    />
+                                    <span
+                                        class="absolute -bottom-1 left-0 h-[2px] w-0 
+                                                bg-blue-500 dark:bg-blue-400 
+                                                transition-all duration-300 group-hover:w-full"
+                                    />
+                                </div>
+                            ) : (
+                                <div class="relative">
+                                    <span class="relative z-10">
+                                        {link.title}
+                                    </span>
+                                    <span class="absolute inset-0 h-full w-full scale-105 rounded-full bg-blue-500/10 opacity-0 transition-all group-hover:opacity-100" />
+                                    <span class="absolute bottom-0 left-0 h-[2px] w-0 bg-blue-500 transition-all duration-300 group-hover:w-full" />
+                                </div>
+                            )}
+                        </a>
+                    ))
+                }
+            </div>
+            <ThemeToggle />
+        </div>
     </nav>
 </header>
 
-<script>
-    document.addEventListener("astro:page-load", () => {
-        const sections = document.querySelectorAll("section");
-        const navItems = document.querySelectorAll("header nav a");
-
-        const callback = (entries: any[]) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    navItems.forEach((item) => {
-                        if (
-                            item.getAttribute("aria-label") == entry.target.id
-                        ) {
-                            item.classList.add("text-blue-500");
-                        } else {
-                            item.classList.remove("text-blue-500");
-                        }
-                    });
-                }
-            });
-        };
-
-        const observer = new IntersectionObserver(callback, {
-            root: null,
-            rootMargin: "0px",
-            threshold: 0.3,
-        });
-
-        sections.forEach((section) => {
-            observer.observe(section);
-        });
-
-        // Cleanup function
-        document.onvisibilitychange = () => {
-            if (document.visibilityState === "hidden") {
-                observer.disconnect();
-            } else {
-                sections.forEach((section) => {
-                    observer.observe(section);
-                });
-            }
-        };
-    });
-</script>
-
 <style>
-    nav {
-        animation: nav-shadown 1s linear both;
-        animation-timeline: scroll();
-        animation-range: 0 100px;
+    /* Improved animations */
+    #header-nav {
+        transition:
+            background-color 0.3s ease,
+            box-shadow 0.3s ease,
+            padding 0.3s ease;
     }
 
-    nav {
-        @apply dark:bg-gray-800/90 bg-white/50;
+    /* Home icon animation */
+    nav a:first-child img {
+        animation: icon-float 3s ease-in-out infinite;
     }
 
-    @keyframes nav-shadown {
-        0% {
-            @apply dark:bg-gray-800/0 bg-white/0;
+    @keyframes icon-float {
+        0%,
+        100% {
+            transform: translateY(0);
         }
-        to {
-            @apply shadow-lg ring-1 backdrop-blur ring-white/10;
+        50% {
+            transform: translateY(-4px);
+        }
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+        #header-nav {
+            padding: 0.75rem 1rem;
+        }
+
+        nav a {
+            padding: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        nav a:first-child img {
+            height: 1.5rem;
+            width: 1.5rem;
         }
     }
 </style>

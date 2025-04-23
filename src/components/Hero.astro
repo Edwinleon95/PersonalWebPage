@@ -1,5 +1,4 @@
 ---
-import Badge from "../components/Badge.astro";
 import LinkedInIcon from "../components/icons/LinkedInIcon.astro";
 import EmailIcon from "../components/icons/EmailIcon.astro";
 import SocialPill from "../components/SocialPill.astro";
@@ -13,16 +12,18 @@ import GithubIcon from "./icons/GithubIcon.astro";
         Edwin Leon
     </h1>
     <h2
-        class="text-3xl font-bold tracking-tight  max-sm:text-4xl dark:text-gray-300 text-gray-700 max-sm:text-center"
+        class="text-3xl font-bold tracking-tight max-sm:text-4xl dark:text-gray-300 text-gray-700 max-sm:text-center"
     >
         Full Stack Developer
     </h2>
-    <p class="mt-6 text-lg max-sm:text-xl text-gray-600 dark:text-gray-400 font-medium max-sm:text-center">
+    <p
+        class="mt-6 text-lg max-sm:text-xl text-gray-600 dark:text-gray-400 font-medium max-sm:text-center"
+    >
         <strong class="text-yellow-400 font-bold"
             >With over three years of experience as a software developer,</strong
         >
-        I have collaborated with global teams, contributing to impactful projects
-        across diverse industries and delivering solutions tailored to business needs.
+        I'm always eager to learn, grow, and most importantly, create real value
+        for the team I'm part of.
     </p>
 
     <nav class="flex flex-wrap gap-4 mt-8 max-sm:justify-center">
@@ -34,14 +35,16 @@ import GithubIcon from "./icons/GithubIcon.astro";
             <GithubIcon class="size-4" />
             Github
         </SocialPill>
-        <SocialPill href="mailto:edwinleon@webdevinnovation.com?subject=Potential%Opportunity&body=I%20would%20like%20to%20connect%20with%20you.">
+        <SocialPill
+            href="mailto:edwinleon@webdevinnovation.com?subject=Potential%Opportunity&body=I%20would%20like%20to%20connect%20with%20you."
+        >
             <EmailIcon class="size-4" />
             Contact Me
         </SocialPill>
     </nav>
 </div>
 
-<div class=" max-sm:content-center">
+<div class="max-sm:content-center">
     <img
         class="transition rounded-full filter drop-shadow-[0_0_10px_#4444dd] dark:drop-shadow-[0_0_100px_#ffffff] max-sm:size-72 max-sm:mb-5"
         src="/mainPicturePortfolio.png"
