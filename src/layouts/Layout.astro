@@ -10,25 +10,6 @@ interface Props {
 }
 
 const { description, title } = Astro.props;
-
-// Define your content animation
-const contentAnimation = {
-	old: {
-		name: "content-out",
-		duration: "0.4s",
-		easing: "cubic-bezier(0.4, 0, 0.2, 1)",
-	},
-	new: {
-		name: "content-in",
-		duration: "0.4s",
-		easing: "cubic-bezier(0.4, 0, 0.2, 1)",
-	},
-};
-
-const customTransition = {
-	forwards: contentAnimation,
-	backwards: contentAnimation,
-};
 ---
 
 <!doctype html>
